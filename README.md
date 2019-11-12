@@ -1,4 +1,76 @@
-# 常用SQL語法
+# MySQL 教學範本
+
+## 連線
+- 指令一：mysql –h Host – u User -pPassword
+- 指令二：mysql –h Host – u User –p
+Enter password: ********
+- 指令三：mysql
+
+"-h" 代表指定連線主機參數， Host 代表主機名稱，可用數字碼，或是網域名稱。
+"-u" 代表帳號參數，User 為使用者帳號。
+"-p"表示密碼參數，Password 為使用者自己設定之密碼，"-p"和密碼間不能有空格。
+指令一之密碼直接在"-p"之後輸入，輸入之密碼將直接顯示在螢幕上。
+指令二之密碼在輸入"-p"之後，按 Enter 鍵，然後輸入密碼
+
+## 離線
+
+離線指令有下列兩種型式：
+指令一： QUIT
+指令二： \q 
+
+![](https://i.imgur.com/6rQNoKl.png)
+
+
+## 建立資料庫
+語法：Create Database資料庫名稱;
+
+新增資料庫
+CREATE DATABASE `my_db`;
+
+新增使用者，設定密碼
+CREATE USER 'my_user'@'localhost' IDENTIFIED BY '輸入自訂密碼';
+
+設定使用者權限
+GRANT ALL PRIVILEGES ON my_db.* TO 'my_user'@'localhost';
+
+use my_db;
+
+
+
+## 備份資料庫
+
+指令 1:
+    mysqldump 目標資料庫 -u 帳號 -p > 備份檔案名稱
+指令 2 (不備份資料)
+    mysqldump 目標資料庫 -d -u 帳號 -p > 備份檔案名稱
+指令 3 (不加註解):
+    mysqldump 目標資料庫 --comment=0 -u 帳號 -p > 備份檔案名稱
+指令 4 (包含資料庫建檔指令):
+    mysqldump 目標資料庫 -d -u 帳號 --databases -p > 備份檔案名稱
+    
+
+## 建立暫時性資料表
+語法：Create Temporary Table資料庫名稱（欄位定義）;
+說明：資料表將建立在記憶體內，資料處理完後可予以刪除，離線後該表
+將自動被刪除。暫存表可用於整理過渡資料。
+
+## 刪除資料表
+語法：Drop Table資料表名稱 ; 
+
+
+## 顯示資料表明細
+語法：Show Tables;
+
+![](https://i.imgur.com/LIwPvHH.png)
+
+
+## 顯示資料表結構
+語法：Describe 資料表名稱;
+範例：Describe cuinfo; 
+
+![](https://i.imgur.com/Vd0Wp42.png)
+
+
 
 ## SQL Select：
 ```bash
@@ -111,6 +183,17 @@ ORDER BY Sales DESC;
 - MIN (最小值)
 - SUM (總合)
 - COUNT(個數)
+
+說明：
+Count：計算筆數，
+Sum：計算總和，
+AVG：計算平均，
+Std：計算母體標準差，
+StdDev_Samp：計算樣本標準差，
+Max：計算最大值，
+Min：計算最小值。
+
+
 ```bash
 SELECT "函數名"("欄位名")
 FROM "表格名";
@@ -246,3 +329,5 @@ FROM Geography;
 ## 參考網址
 
 [SQL語法教學](https://www.1keydata.com/tw/sql)
+
+http://web.nuu.edu.tw/~carlu/html/eBook/EasydoMySQL/CH2.pdf
