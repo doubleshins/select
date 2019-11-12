@@ -43,14 +43,22 @@ use my_db;
 ## 備份資料庫
 
 指令 1:
+```
     mysqldump 目標資料庫 -u 帳號 -p > 備份檔案名稱
+```
 指令 2 (不備份資料)
+```
     mysqldump 目標資料庫 -d -u 帳號 -p > 備份檔案名稱
-指令 3 (不加註解):
+```    
+指令 3 (不加註解)
+```
     mysqldump 目標資料庫 --comment=0 -u 帳號 -p > 備份檔案名稱
-指令 4 (包含資料庫建檔指令):
-    mysqldump 目標資料庫 -d -u 帳號 --databases -p > 備份檔案名稱
+```    
     
+指令 4 (包含資料庫建檔指令)
+```
+    mysqldump 目標資料庫 -d -u 帳號 --databases -p > 備份檔案名稱
+```   
 
 ## 建立暫時性資料表
 語法：Create Temporary Table資料庫名稱（欄位定義）;
