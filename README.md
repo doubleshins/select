@@ -2,8 +2,11 @@
 
 ## 連線
 - 指令一：mysql –h Host – u User -pPassword
+
 - 指令二：mysql –h Host – u User –p
+
 Enter password: ********
+
 - 指令三：mysql
 
 "-h" 代表指定連線主機參數， Host 代表主機名稱，可用數字碼，或是網域名稱。
